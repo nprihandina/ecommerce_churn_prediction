@@ -18,19 +18,19 @@ Decrease the e-commerce&#39;s churn rate by conveying recommendations based on c
 
 The data used in this analysis is an e-commerce dataset that contains a collection of customer data belonging to a leading e-commerce company. Overall this dataset has 5630 rows and 20 columns in which contains several NaN and duplicated data.
 
-![Data](Capture.JPG)
+![Data](pict/Capture.JPG)
 
 When looking at the boxplot of each numerical column of the dataset, several outliers can be observed on each column which will later be filtered during the data cleaning process.
 
-![Data](boxplot.png)
+![Data](pict/boxplot.png)
 
 Based on the distribution, the majority of the dataset are positively skewed, especially data in WarehouseToHome, OrderCount, NumberOfAddress, DaySinceLastOrder, and CouponUsed column.
 
-![Data](histogram.png)
+![Data](pict/histogram.png)
 
 When looking at the target of this dataset, this dataset has an imbalance class where from 5630 total customer, only 948 (16.84%) chooses to churn.
 
-![Data](imbalance.JPG)
+![Data](pict/imbalance.JPG)
 
 **XGBoost Modelling**
 
@@ -38,17 +38,17 @@ XGBoost (eXtreme Gradient Boosting) is a tree-based machine learning ensemble al
 
 By Hyperparameter tuning and early stopping (to reduce the chance of overfitting), this particular XGBoost model has a classification report of:
 
-![Data](classreport.JPG)
+![Data](pict/classreport.JPG)
 
 **Model Evaluation**
 
-![Data](matrix.JPG)
+![Data](pict/matrix.JPG)
 
 This XGBoost model with a 94% recall can predict 138 (true positive) customers who choose to churn (actual number of customers who churn: 147). Of a total of 939 customers, XGBoost misclassified 9 customers that choose to churn and 47 customers that supposedly choose to not churn.
 
 **Feature Importance**
 
-![Data](shap.JPG)
+![Data](pict/shap.JPG)
 
 The feature importance determination of this model uses the SHAP library due to XGBoost low interpretability nature. Based on SHAP illustration, the five most important features according to this machine learning model in classifying customer churn are:
 
@@ -66,7 +66,7 @@ The feature importance determination of this model uses the SHAP library due to 
 
 1. Complain and tenure
 
-![Data](tenure.JPG)
+![Data](pict/tenure.JPG)
 
 The majority of customers who choose to churn have a tenure period of fewer than 6 months, or relatively speaking, new customers have a higher potential to churn.
 
@@ -79,11 +79,11 @@ However, according to Fornell and Wernellfelt, customer complaints that are well
 
 By this dataset, customers who have complained have a higher churn rate (32%) compared to customers who have never complained (11%)/ Because of the high churn rate of customers who complained, this e-commerce&#39;s complaint management needs to be reviewed and improved.
 
-![Data](complain.JPG)
+![Data](pict/complain.JPG)
 
-When the complaint churn rate is grouped according to tenure period, the relationship between tenure period and complaints can be observed, when new customers filed complaints (\&lt;6 months), the risk of churn is greater than customers with a longer tenure period (\&gt;6 months).
+When the complaint churn rate is grouped according to tenure period, the relationship between tenure period and complaints can be observed, when new customers filed complaints (below 6 months), the risk of churn is greater than customers with a longer tenure period (above 6 months).
 
-![Data](segment.JPG)
+![Data](pict/segment.JPG)
 
 2. Warehouse to home
 
@@ -99,21 +99,21 @@ residential environment.
 
 From this E-commerce dataset, the churn rate increases with the distance between the e-commerce&#39;s warehouse and the customer&#39;s residential address. This can be caused by the increase in shipping costs and the length of delivery time, these two things can make customers find other e-commerce with closer delivery distances or even make customers prefer to shop at an offline store
 
-![Data](warehouse.JPG)
+![Data](pict/warehouse.JPG)
 
 3. Day Since Last Order
 
 From the graph of days since last order with churn rate, the highest churn rate is owned by customers who have just placed an order, there are possibilities that the customer who has just ordered had an unsatisfactory shopping experience and resulted in their choice churn.
 
-![Data](daysince.JPG)
+![Data](pict/daysince.JPG)
 
 When observed in more detail of average order count of customers who churned, it turns out that customers who decided to churn have only ordered 1-2 times, this may support the claim that customers who churned are new customers and/or customers who rarely shop at this e-commerce.
 
-![Data](totalorder.JPG)
+![Data](pict/totalorder.JPG)
 
 The main cause of customer churn may be because of their complaint amount. From the graph of complaints and day since last order, the majority of customers who just ordered have filed for complaints. There is a possibility that the customer is not satisfied with the e-commerce service and decided to churn after only ordering 1-2 times.
 
-![Data](totalcomplaints.JPG)
+![Data](pict/totalcomplaints.JPG)
 
 **Recommendations**
 
