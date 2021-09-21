@@ -8,7 +8,7 @@ Based on this e-commerce dataset, there are 16.84% of customers who churn, where
 
 **Goals**
 
-Predict customers who will tend to churn.
+Predict customers who have churn tendencies.
 
 **Objective**
 
